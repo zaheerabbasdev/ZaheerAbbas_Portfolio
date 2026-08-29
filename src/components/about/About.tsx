@@ -80,10 +80,10 @@ export function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-white dark:bg-[#111] border border-gray-200 dark:border-gray-800 rounded-2xl p-6 md:p-8 hover:border-cyan-500/50 dark:hover:border-cyan-500/30 transition-colors shadow-sm"
+                className="bg-white dark:bg-[#111] border border-gray-200 dark:border-gray-800 rounded-2xl p-6 md:p-8 hover:border-blue-500/50 dark:hover:border-blue-500/30 transition-colors shadow-sm"
               >
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-cyan-50 dark:bg-cyan-900/20 flex items-center justify-center text-cyan-600 dark:text-cyan-400">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-blue-600 dark:text-blue-400">
                     <FontAwesomeIcon icon={card.icon} className="w-5 h-5" />
                   </div>
                   <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">{card.title}</h3>
