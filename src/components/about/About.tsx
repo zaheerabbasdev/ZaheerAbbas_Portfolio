@@ -3,11 +3,11 @@
 import { motion } from "framer-motion";
 import { portfolioData } from "@/data/portfolio";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { 
-  faBriefcase, 
-  faCode, 
-  faBrain, 
-  faGraduationCap, 
+import {
+  faBriefcase,
+  faCode,
+  faBrain,
+  faGraduationCap,
   faGlobe,
   faLaptopCode,
   faRobot,
@@ -52,13 +52,13 @@ export function About() {
     <section id="about" className="py-24 bg-gray-50 dark:bg-[#0a0a0a] relative overflow-hidden">
       {/* Decorative background blob */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-gradient-to-b from-cyan-500/10 to-transparent blur-3xl rounded-full pointer-events-none"></div>
-      
+
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        
+
         {/* Header */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 mb-6 text-cyan-600 dark:text-cyan-400 font-semibold tracking-wider uppercase text-sm">
-            <span className="w-2 h-2 rounded-full bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.8)]"></span>
+          <div className="inline-flex items-center gap-2 mb-6 text-blue-600 dark:text-blue-400 font-semibold tracking-wider uppercase text-sm">
+            <span className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(6,182,212,0.8)]"></span>
             About Me
           </div>
           <h2 className="text-3xl md:text-5xl font-bold font-heading text-gray-900 dark:text-white mb-6 leading-tight">
@@ -70,11 +70,11 @@ export function About() {
         </div>
 
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
-          
+
           {/* Left Column: Cards */}
           <div className="flex-1 w-full space-y-6">
             {aboutCards.map((card, idx) => (
-              <motion.div 
+              <motion.div
                 key={card.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -104,7 +104,7 @@ export function About() {
               transition={{ duration: 0.6 }}
             >
               <div className="mb-8">
-                <h4 className="text-cyan-600 dark:text-cyan-400 font-semibold tracking-widest uppercase text-xs mb-2">My Journey</h4>
+                <h4 className="text-blue-600 dark:text-blue-400 font-semibold tracking-widest uppercase text-xs mb-2">My Journey</h4>
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">Journey So Far</h3>
               </div>
 
@@ -115,12 +115,12 @@ export function About() {
                 {journeySteps.map((step, idx) => (
                   <div key={step.id} className="relative group">
                     {/* Node */}
-                    <div className="absolute -left-[29px] md:-left-[37px] top-0.5 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-700 flex items-center justify-center group-hover:border-cyan-500 dark:group-hover:border-cyan-500 transition-colors shadow-sm z-10">
-                      <FontAwesomeIcon icon={step.icon} className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
+                    <div className="absolute -left-[29px] md:-left-[37px] top-0.5 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-700 flex items-center justify-center group-hover:border-blue-500 dark:group-hover:border-blue-500 transition-colors shadow-sm z-10">
+                      <FontAwesomeIcon icon={step.icon} className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                     </div>
-                    
+
                     <div className="pl-4">
-                      <h4 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+                      <h4 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                         {step.title}
                       </h4>
                       <p className="text-sm text-gray-500 dark:text-gray-500 mt-1">
