@@ -46,7 +46,7 @@ export function Skills() {
           </p>
         </div>
 
-        <motion.div 
+        <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16"
           variants={containerVariants}
           initial="hidden"
@@ -54,8 +54,8 @@ export function Skills() {
           viewport={{ once: true, margin: "-100px" }}
         >
           {skills.map((category) => (
-            <motion.div 
-              key={category.category} 
+            <motion.div
+              key={category.category}
               variants={itemVariants}
               className="flex flex-col"
             >
@@ -65,7 +65,7 @@ export function Skills() {
                 </div>
                 <h3 className="text-2xl font-bold font-heading text-gray-900 dark:text-white">{category.category}</h3>
               </div>
-              
+
               <div className="flex flex-col gap-6">
                 {category.items.map((skill) => {
                   const percentage = skill.level === "Advanced" ? "90%" : skill.level === "Intermediate" ? "75%" : "60%";
@@ -80,8 +80,8 @@ export function Skills() {
                         </span>
                       </div>
                       <div className="w-full bg-gray-200 dark:bg-gray-800 rounded-full h-3 overflow-hidden shadow-inner">
-                        <motion.div 
-                          className="bg-gradient-to-r from-blue-600 to-cyan-500 h-3 rounded-full relative" 
+                        <motion.div
+                          className="bg-gradient-to-r from-blue-600 to-cyan-500 h-3 rounded-full relative"
                           initial={{ width: 0 }}
                           whileInView={{ width: percentage }}
                           viewport={{ once: true }}
