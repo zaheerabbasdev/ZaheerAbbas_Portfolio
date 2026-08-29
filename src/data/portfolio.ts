@@ -164,15 +164,15 @@ export const portfolioData = {
   experience: [
     {
       id: 1,
-      company: "[Company Name]",
-      position: "Full Stack Developer",
-      location: "Pakistan",
-      type: "Internship",
-      startDate: "Jan 2025",
+      company: "Self-Employed / Freelancer",
+      position: "Full Stack & Mobile App Developer",
+      location: "Remote",
+      type: "Freelance",
+      startDate: "Jan 2024",
       endDate: "Present",
       current: true,
-      description: "Developed and maintained modern web applications using React and Node.js. Collaborated with cross-functional teams to deliver high-quality software solutions.",
-      technologies: ["React", "Node.js", "Express", "MongoDB"]
+      description: "Designing, developing, and deploying full-stack web platforms and cross-platform mobile applications for diverse clients. Managing end-to-end project lifecycles from architecture to production deployment.",
+      technologies: ["Next.js", "React", "Flutter", "Node.js", "MongoDB", "MySQL"]
     }
   ],
 
