@@ -34,7 +34,7 @@ export function Navbar() {
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "py-4 glass shadow-sm" : "py-6 bg-transparent"
+        isScrolled ? "py-4 bg-white/90 dark:bg-[#0a0a0a]/90 backdrop-blur-md" : "py-6 bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between">
