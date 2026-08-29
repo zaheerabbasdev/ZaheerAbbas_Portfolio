@@ -33,9 +33,8 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "py-4 bg-white/90 dark:bg-[#0a0a0a]/90 backdrop-blur-md" : "py-6 bg-transparent"
-      }`}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? "py-4 bg-white/90 dark:bg-[#0a0a0a]/90 backdrop-blur-md" : "py-6 bg-transparent"
+        }`}
     >
       <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between">
         {/* Logo */}
@@ -58,7 +57,7 @@ export function Navbar() {
               </li>
             ))}
           </ul>
-          
+
           <div className="flex items-center space-x-4 border-l border-gray-300 dark:border-gray-700 pl-4">
             <a href={personal.github} target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors">
               <FontAwesomeIcon icon={faGithub} className="w-5 h-5" />
