@@ -3,87 +3,134 @@
 import { motion } from "framer-motion";
 import { portfolioData } from "@/data/portfolio";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCodeBranch, faLaptopCode, faGraduationCap, faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
+import { 
+  faBriefcase, 
+  faCode, 
+  faBrain, 
+  faGraduationCap, 
+  faGlobe,
+  faLaptopCode,
+  faRobot,
+  faRocket
+} from "@fortawesome/free-solid-svg-icons";
 
 export function About() {
-  const { projects } = portfolioData;
+  const { personal } = portfolioData;
 
-  const currentYear = new Date().getFullYear();
-  // Assume start of career / degree was 2022
-  const yearsOfExperience = currentYear - 2022;
-  const completedProjects = projects.filter(p => p.status === "Completed").length;
+  const aboutCards = [
+    {
+      id: "story",
+      title: "My Story",
+      icon: faBriefcase,
+      content: `I'm ${personal.name}, a Computer Science student and Full Stack Developer. My professional journey began by building scalable web applications and mobile apps, where I worked on real-world projects and gained valuable experience. Through continuous learning, I have progressed to building complete end-to-end solutions.`,
+    },
+    {
+      id: "build",
+      title: "What I Build",
+      icon: faCode,
+      content: "I build modern, responsive, and user-friendly applications using React.js, Next.js, Node.js, and Flutter. My focus is on writing clean, maintainable code while creating fast and engaging digital experiences. I also have practical experience with Database Architecture and Cloud Integrations.",
+    },
+    {
+      id: "vision",
+      title: "My Vision",
+      icon: faBrain,
+      content: "Artificial Intelligence has become an important part of my learning journey. By exploring AI tools and AI-powered application development, my goal is to become a Full Stack AI Developer who builds intelligent, scalable, and impactful digital products.",
+    }
+  ];
 
-  const stats = [
-    { label: "Years Experience", value: `${yearsOfExperience}+`, icon: faCalendarAlt },
-    { label: "Projects Completed", value: completedProjects, icon: faCodeBranch },
-    { label: "Technologies", value: "15+", icon: faLaptopCode },
-    { label: "Degree", value: "BSCS", icon: faGraduationCap },
+  const journeySteps = [
+    { id: 1, title: "BS Computer Science", subtitle: "Undergraduate", icon: faGraduationCap },
+    { id: 2, title: "Freelancer", subtitle: "Self-Employed", icon: faGlobe },
+    { id: 3, title: "Full Stack Developer", subtitle: "React.js & Node.js", icon: faLaptopCode },
+    { id: 4, title: "AI Enthusiast", subtitle: "AI-Powered Apps", icon: faRobot },
+    { id: 5, title: "Future Goal", subtitle: "Full Stack AI Developer", icon: faRocket },
   ];
 
   return (
-    <section id="about" className="py-24 bg-white dark:bg-[#0a0a0a]">
-      <div className="container mx-auto px-6 max-w-7xl">
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
-          
-          {/* Left: Stats Grid */}
-          <motion.div
-            className="flex-1 w-full grid grid-cols-2 gap-6 relative"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            {/* Decorative background blob */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-2xl rounded-full opacity-50 dark:opacity-30 -z-10"></div>
-            
-            {stats.map((stat, index) => (
-              <div key={index} className="p-8 rounded-2xl bg-white/70 dark:bg-[#1a1a1a]/80 backdrop-blur-md border border-gray-200/50 dark:border-gray-800 shadow-xl shadow-gray-200/20 dark:shadow-none text-center hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 group">
-                <div className="w-14 h-14 mx-auto mb-5 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/40 dark:to-blue-800/20 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform duration-300">
-                  <FontAwesomeIcon icon={stat.icon} className="w-6 h-6" />
-                </div>
-                <div className="text-4xl font-extrabold font-heading bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400 mb-2">{stat.value}</div>
-                <div className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">{stat.label}</div>
-              </div>
-            ))}
-          </motion.div>
+    <section id="about" className="py-24 bg-gray-50 dark:bg-[#0a0a0a] relative overflow-hidden">
+      {/* Decorative background blob */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-gradient-to-b from-cyan-500/10 to-transparent blur-3xl rounded-full pointer-events-none"></div>
+      
+      <div className="container mx-auto px-6 max-w-7xl relative z-10">
+        
+        {/* Header */}
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 mb-6 text-cyan-600 dark:text-cyan-400 font-semibold tracking-wider uppercase text-sm">
+            <span className="w-2 h-2 rounded-full bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.8)]"></span>
+            About Me
+          </div>
+          <h2 className="text-3xl md:text-5xl font-bold font-heading text-gray-900 dark:text-white mb-6 leading-tight">
+            Turning Ideas Into Modern Web Experiences
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 text-lg md:text-xl">
+            I&apos;m <span className="font-bold text-gray-900 dark:text-gray-200">{personal.name}</span>, a Full Stack Developer & Mobile App Developer passionate about building responsive websites, robust backends, and AI-powered applications.
+          </p>
+        </div>
 
-          {/* Right: Text Content */}
-          <motion.div
-            className="flex-1 w-full lg:pl-10"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 font-semibold tracking-wider uppercase text-xs mb-6">
-              <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-              About Me
-            </div>
-            
-            <h2 className="text-4xl md:text-5xl font-bold font-heading text-gray-900 dark:text-white mb-8 leading-tight">
-              Engineering solutions for the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">modern web & mobile.</span>
-            </h2>
-            
-            <div className="space-y-6 text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
-              <p className="font-medium text-gray-800 dark:text-gray-200">
-                I hold a Bachelor&apos;s degree in Computer Science and specialize as a Full Stack Developer and Mobile App Developer. My journey in software engineering has been driven by a passion for creating impactful, real-world products.
-              </p>
-              <p>
-                Whether it&apos;s architecting scalable backend systems, designing intuitive frontend interfaces, or building cross-platform mobile apps with Flutter, I enjoy learning new technologies and applying them to solve complex business problems.
-              </p>
-              <p>
-                My focus isn&apos;t just on writing code; it&apos;s on delivering end-to-end solutions that are maintainable, efficient, and provide an excellent user experience.
-              </p>
-            </div>
-            
-            <div className="mt-10">
-              <a href="#contact" className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-gray-900 dark:bg-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group">
-                Let&apos;s discuss your next project 
-                <FontAwesomeIcon icon={faCodeBranch} className="ml-3 w-5 h-5 group-hover:rotate-12 transition-transform" />
-              </a>
-            </div>
-          </motion.div>
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
           
+          {/* Left Column: Cards */}
+          <div className="flex-1 w-full space-y-6">
+            {aboutCards.map((card, idx) => (
+              <motion.div 
+                key={card.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="bg-white dark:bg-[#111] border border-gray-200 dark:border-gray-800 rounded-2xl p-6 md:p-8 hover:border-cyan-500/50 dark:hover:border-cyan-500/30 transition-colors shadow-sm"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-cyan-50 dark:bg-cyan-900/20 flex items-center justify-center text-cyan-600 dark:text-cyan-400">
+                    <FontAwesomeIcon icon={card.icon} className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">{card.title}</h3>
+                </div>
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                  {card.content}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Right Column: Journey Timeline */}
+          <div className="w-full lg:w-1/3">
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="mb-8">
+                <h4 className="text-cyan-600 dark:text-cyan-400 font-semibold tracking-widest uppercase text-xs mb-2">My Journey</h4>
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">Journey So Far</h3>
+              </div>
+
+              <div className="relative pl-6 md:pl-8 space-y-8">
+                {/* Timeline vertical line */}
+                <div className="absolute left-[11px] md:left-[15px] top-2 bottom-2 w-[2px] bg-gray-200 dark:bg-gray-800"></div>
+
+                {journeySteps.map((step, idx) => (
+                  <div key={step.id} className="relative group">
+                    {/* Node */}
+                    <div className="absolute -left-[29px] md:-left-[37px] top-0.5 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-gray-700 flex items-center justify-center group-hover:border-cyan-500 dark:group-hover:border-cyan-500 transition-colors shadow-sm z-10">
+                      <FontAwesomeIcon icon={step.icon} className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
+                    </div>
+                    
+                    <div className="pl-4">
+                      <h4 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+                        {step.title}
+                      </h4>
+                      <p className="text-sm text-gray-500 dark:text-gray-500 mt-1">
+                        {step.subtitle}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
         </div>
       </div>
     </section>
