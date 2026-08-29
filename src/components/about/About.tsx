@@ -11,7 +11,8 @@ import {
   faGlobe,
   faLaptopCode,
   faRobot,
-  faRocket
+  faRocket,
+  faMobileScreen
 } from "@fortawesome/free-solid-svg-icons";
 
 export function About() {
@@ -42,8 +43,9 @@ export function About() {
     { id: 1, title: "BS Computer Science", subtitle: "Undergraduate", icon: faGraduationCap },
     { id: 2, title: "Freelancer", subtitle: "Self-Employed", icon: faGlobe },
     { id: 3, title: "Full Stack Developer", subtitle: "React.js & Node.js", icon: faLaptopCode },
-    { id: 4, title: "AI Enthusiast", subtitle: "AI-Powered Apps", icon: faRobot },
-    { id: 5, title: "Future Goal", subtitle: "Full Stack AI Developer", icon: faRocket },
+    { id: 4, title: "Mobile App Developer", subtitle: "Flutter & Dart", icon: faMobileScreen },
+    { id: 5, title: "AI Enthusiast", subtitle: "AI-Powered Apps", icon: faRobot },
+    { id: 6, title: "Future Goal", subtitle: "Full Stack AI Developer", icon: faRocket },
   ];
 
   return (
