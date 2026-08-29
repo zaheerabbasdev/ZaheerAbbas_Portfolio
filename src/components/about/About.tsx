@@ -23,7 +23,7 @@ export function About() {
       id: "story",
       title: "My Story",
       icon: faBriefcase,
-      content: `I'm Zaheer Abbas — a Computer Science undergraduate and self-driven Full Stack Developer with hands-on experience delivering real-world web and mobile applications. I combine strong technical foundations with a freelance mindset, building solutions that are not just functional, but purposeful, scalable, and user-centered.`,
+      content: `I'm Zaheer Abbas a Full Stack Developer and freelancer passionate about turning ideas into high-quality digital products. With hands-on experience across web and mobile platforms, I've built and shipped real-world applications that solve genuine problems. I thrive at the intersection of clean engineering and great user experience.`,
     },
     {
       id: "build",
