@@ -10,25 +10,57 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const navLinks = [
-  { name: "About", href: "/#about" },
-  { name: "Skills", href: "/#skills" },
-  { name: "Projects", href: "/#projects" },
-  { name: "Experience", href: "/#experience" },
-  { name: "Education", href: "/#education" },
-  { name: "Contact", href: "/#contact" },
+  { name: "About", href: "/#about", id: "about" },
+  { name: "Skills", href: "/#skills", id: "skills" },
+  { name: "Projects", href: "/#projects", id: "projects" },
+  { name: "Experience", href: "/#experience", id: "experience" },
+  { name: "Education", href: "/#education", id: "education" },
+  { name: "Services", href: "/#services", id: "services" },
+  { name: "Contact", href: "/#contact", id: "contact" },
 ];
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
+  const [scrollProgress, setScrollProgress] = useState(0);
   const { personal } = portfolioData;
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollProgress(docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0);
     };
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    // Only run scroll-spy on the homepage where these sections exist.
+    if (typeof window !== "undefined" && window.location.pathname !== "/") return;
+
+    const sections = navLinks
+      .map((link) => document.getElementById(link.id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -36,6 +68,13 @@ export function Navbar() {
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? "py-4 bg-white/90 dark:bg-[#0a0a0a]/90 backdrop-blur-md" : "py-6 bg-transparent"
         }`}
     >
+      {/* Scroll progress indicator */}
+      <div
+        className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-blue-500 to-cyan-400 transition-[width] duration-150 ease-out"
+        style={{ width: `${scrollProgress}%` }}
+        aria-hidden="true"
+      />
+
       <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 text-xl md:text-2xl font-heading font-bold tracking-tight text-gray-900 dark:text-white group">
@@ -50,9 +89,20 @@ export function Navbar() {
               <li key={link.name}>
                 <Link
                   href={link.href}
-                  className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className={`relative text-sm font-medium transition-colors ${
+                    activeSection === link.id
+                      ? "text-blue-600 dark:text-blue-400"
+                      : "text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                  }`}
                 >
                   {link.name}
+                  {activeSection === link.id && (
+                    <motion.span
+                      layoutId="active-nav-indicator"
+                      className="absolute -bottom-1.5 left-0 right-0 h-[2px] rounded-full bg-blue-600 dark:bg-blue-400"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
                 </Link>
               </li>
             ))}
@@ -106,7 +156,11 @@ export function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-lg font-medium text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className={`text-lg font-medium transition-colors ${
+                    activeSection === link.id
+                      ? "text-blue-600 dark:text-blue-400"
+                      : "text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400"
+                  }`}
                 >
                   {link.name}
                 </Link>

@@ -38,11 +38,13 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-gray-900 dark:text-white mb-6 text-lg">Quick Links</h4>
             <ul className="space-y-4">
-              <li><Link href="#about" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">About Me</Link></li>
-              <li><Link href="#skills" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Technologies</Link></li>
-              <li><Link href="#projects" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Featured Projects</Link></li>
-              <li><Link href="#experience" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Work Experience</Link></li>
-              <li><Link href="#process" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Development Process</Link></li>
+              <li><Link href="/#about" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">About Me</Link></li>
+              <li><Link href="/#skills" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Technologies</Link></li>
+              <li><Link href="/#projects" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Featured Projects</Link></li>
+              <li><Link href="/#experience" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Work Experience</Link></li>
+              <li><Link href="/#services" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Services</Link></li>
+              <li><Link href="/#process" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Development Process</Link></li>
+              <li><Link href="/#contact" className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium">Contact</Link></li>
             </ul>
           </div>
 
